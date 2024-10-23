@@ -1,0 +1,74 @@
+---
+import SectionContainer from "@components/SectionContainer.astro";
+
+const ARTICLES = [
+  {
+    title: "Qué esperar de un proceso de selección",
+    contentId: "selection-process",
+    class:
+      "bg-gradient-to-r from-[#fef6db] to-[#fce197] text-ij-yellow md:aspect-[16/8] md:col-span-2 md:row-span-1 h-full",
+    image: "/bento-info/selection-process.webp",
+    imageClass:
+      "w-full h-auto object-contain object-bottom md:h-auto md:w-auto md:object-right md:max-h-none",
+    action: "modal",
+  },
+  {
+    title: "Los puestos emergentes que van a petarlo",
+    contentId: "emergent-positions",
+    class: "bg-gradient-to-r from-[#ffd2d2] to-[#f9b395] text-ij-red md:col-start-3 md:row-span-2 md:h-full",
+    image: "/bento-info/emergent-positions.webp",
+    imageClass:
+      "w-full h-full object-cover object-center object-[center_30%] md:object-center",
+    action: "modal",
+  },
+  {
+    title: "Las opinión de las empresas",
+    contentId: "company-opinion",
+    class: "bg-sky-800 text-ij-blue md:h-row-span-1",
+    image: "/bento-info/company-opinion.webp",
+    imageClass: "w-full h-full object-cover",
+    action: "link",
+    link: "https://www.tiktok.com/@infojobs/video/7291016517217520928?_r=1&amp%3B_t=8oUBsz4let7",
+  },
+  {
+    title: "¿Sin experiencia? Destaca en las entrevistas",
+    contentId: "no-experience",
+    class:
+      "bg-gradient-to-r from-[#e6f6ee] to-[#8bcfad] text-ij-green md:h-row-span-1 md:h-full",
+    image: "/bento-info/no-experience.webp",
+    imageClass: "w-3/4 h-auto object-contain mb-4",
+    action: "modal",
+  },
+];
+---
+
+<SectionContainer class="bg-hero-pattern rounded=3xl px-4 py-6">
+
+        <h2 class="text-ij-black texte-2xl pb-6"> Preparate para ganar</h2>
+        <div class="grid grid-cols-1 gap-4">
+            {
+                ARTICLES.map(({class: className, title, contentId}) =>(
+                    <article class="aspect-square w-full">
+                       
+                        
+
+<button
+              class:list={[
+                "  h-full p-4  rounded-2xl flex justify-start",
+                className,
+              ]}
+            
+            >
+
+
+                            <h4 class="font-medium text-3xl  text-left text-pretty tracking-separated pr-3">{title}</h4>
+                        </button>
+                    </article>
+
+
+              
+            
+           ) )
+            }
+        </div>
+    </SectionContainer>

@@ -1,6 +1,7 @@
 ---
 import SearchIcon from 'src/icons/SearchIcon.astro'
 import { getStudies } from '@lib/get-ij-studies'
+import SectionContainer from '@components/SectionContainer.astro'
 const SHORTCUTS = [
   { label: "🌱  Sin experiencia",
     href:"https://www.infojobs.net/jobsearch/search-results/list.xhtml?keyword=&segmentId=&page=1&sortBy=PUBLICATION_DATE&onlyForeignCountry=false&countryIds=17&sinceDate=ANY&experienceMin=_0_YEARS&experienceMax=_0_YEARS",
@@ -20,23 +21,28 @@ const SHORTCUTS = [
 
 ]as const 
 
-// obtenemos , recuoperamos los estudios
+// obtenemos , recuperamos los estudios
 const studies = await getStudies()
 console.log(studies)
 ---
+<SectionContainer class="bg-hero-pattern rounded=3xl px-4 py-6">
 
-
-<section class="mx-auto max-w-7xl px-4 w-full">
-<div class="bg-hero-pattern mx-auto w-full rounded-3xl px-4 py-6  ">
     <h1 class=" text-black/80 font-semibold tracking[0.35px] text-2xl text-center pb-4">Tu carrera empieza aqui</h1>
     <search class="bg-white rounded-3xl\ px-4 py-6 ">
         <form  class="">
             <div>
                 <select class="w-full py-4c border-b border-gray-300 text-gray-600 mb-8">
-                    <option value="" disabled selected>Nivel de estudios</option>
-                    <option value="1">Bachillerato</option>
-                    <option value="2">Grado</option> 
-                    <option value="3">Máster</option>
+                  {
+                    studies.map(({id ,value, key})=>{
+                   const isDefault = id === 0
+                   const literal = isDefault ? 'Nivel de estudios' : value
+                   return(
+                    <option value={key} disabled={isDefault} selected={isDefault}>{value}</option>
+                   )
+
+                    })
+                  } 
+                  
                 </select>
             </div>
             <div >
@@ -62,5 +68,3 @@ console.log(studies)
         }
         </div>
     </footer>
-</div>
-</section>

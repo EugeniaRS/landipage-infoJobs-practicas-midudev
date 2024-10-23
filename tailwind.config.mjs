@@ -6,6 +6,11 @@ export default {
       colors: {
         primary: "#167DB7",
         accent: "#FE5230",
+        "ij-black": "#212121",
+        "ij-red": "#FF421C",
+        "ij-green": "",
+        "ij-blue": "",
+        "ij-yellow": "",
         dark: "",
       },
       backgroundImage: {
@@ -13,6 +18,9 @@ export default {
       },
       borderRadius: {
         "4xl": "2.5rem",
+      },
+      letterSpacing: {
+        separated: "0.35px",
       },
     },
   },
